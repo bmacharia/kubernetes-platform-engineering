@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: n8n-ingress
+  annotations:
+    # cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - customer1.mercury.mischavandenburg.net
+      secretName: n8n-tls-prod
+  rules:
+    - host: customer1.mercury.mischavandenburg.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: n8n # Your n8n service name
+                port:
+                  number: 3008 # Or whatever port your n8n service exposes

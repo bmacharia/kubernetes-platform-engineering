@@ -1,0 +1,10 @@
+[tools]
+flux2 = "latest"
+gh = "latest"
+helm = "latest"
+k9s = "latest"
+kubectl = "latest"
+kubectx = "latest"
+kubens = "latest"
+python = "latest"
+terraform = "latest"
