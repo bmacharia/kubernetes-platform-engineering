@@ -49,7 +49,7 @@ resource "azurerm_postgresql_flexible_server" "n8n_db" {
 
   name                = "psql-n8n-mercury-neu"
   resource_group_name = azurerm_resource_group.aks.name
-  location            = "northeurope"  # US regions restricted for PostgreSQL Flexible Server
+  location            = "westus2" # US regions restricted for PostgreSQL Flexible Server
   zone                = "1"
 
   administrator_login    = "n8nadmin"
