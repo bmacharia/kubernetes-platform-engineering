@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 
 resource "azurerm_postgresql_flexible_server" "n8n_db" {
 
-  name                = "psql-n8n-mercury"
+  name                = "psql-n8n-mercury-v2"
   resource_group_name = azurerm_resource_group.aks.name
   location            = azurerm_resource_group.aks.location
   zone                = "2"
