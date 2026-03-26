@@ -9,10 +9,10 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - customer1.mercury.mischavandenburg.net
+        - customer1.mercury.airmanbabu.net
       secretName: n8n-tls-prod
   rules:
-    - host: customer1.mercury.mischavandenburg.net
+    - host: customer1.mercury.airmanbabu.net
       http:
         paths:
           - path: /
