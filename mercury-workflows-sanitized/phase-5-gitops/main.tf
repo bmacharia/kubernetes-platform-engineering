@@ -14,12 +14,13 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "c9f99369-d202-458b-9a97-4c95a5cbc20c"
+  subscription_id = "8010b04e-0bd8-432f-b42b-7d3edfd19f5c"
+
 }
 
 resource "azurerm_resource_group" "aks" {
   name     = "rg-cloud-course-aks"
-  location = "North Europe"
+  location = "westus2"
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
@@ -65,7 +66,7 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
   namespace  = "flux-system"
 
   git_repository {
-    url             = "ssh://git@github.com/mischavandenburg/mercury-gitops"
+    url             = "ssh://git@github.com/bmacharia/mercury-gitops"
     reference_type  = "branch"
     reference_value = "main"
 

@@ -22,7 +22,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/mercury -N "" -C "mercury-gitops-deploy-key"
 
 ```bash
 gh repo deploy-key add ~/.ssh/mercury.pub \
-  --repo <your username>/mercury-gitops \
+  --repo bmacharia/mercury-gitops \
   --title "flux-deploy-key" \
   --allow-write
 ```
