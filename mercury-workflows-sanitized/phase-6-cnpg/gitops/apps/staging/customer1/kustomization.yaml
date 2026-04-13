@@ -9,14 +9,14 @@ patches:
     patch: |-
       - op: replace
         path: /spec/parameters/userAssignedIdentityID
-        value: "ba750c78-ea9e-4964-acab-df8e9351d0c6"
+        value: "e77a0f4b-6e5c-4b95-9818-e6047eb06388"
       - op: replace
         path: /spec/parameters/tenantId
-        value: "6c0d1498-a808-4d41-a865-fdebeb412738"
+        value: "2f695754-b89d-4b9b-b341-984f80794ebc"
   - target:
       kind: ObjectStore
       name: customer1-objectstore
     patch: |-
       - op: replace
         path: /spec/configuration/destinationPath
-        value: "https://mercurybackupsstaging.blob.core.windows.net/customer1"
+        value: "https://jupiterbackupsstaging.blob.core.windows.net/customer1"
