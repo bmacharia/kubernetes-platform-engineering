@@ -9,7 +9,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/parameters/userAssignedIdentityID
-        value: "e77a0f4b-6e5c-4b95-9818-e6047eb06388"
+        value: "1e003d54-761a-462b-9f6a-95ad8e91a0a9"
       - op: replace
         path: /spec/parameters/tenantId
         value: "2f695754-b89d-4b9b-b341-984f80794ebc"
