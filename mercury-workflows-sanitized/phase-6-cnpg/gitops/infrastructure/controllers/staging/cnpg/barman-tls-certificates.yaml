@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: barman-cloud-selfsigned-issuer
+  namespace: cnpg-system
 spec:
   selfSigned: {}
 ---
@@ -9,6 +10,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: barman-cloud-ca
+  namespace: cnpg-system
 spec:
   isCA: true
   commonName: barman-cloud-ca
@@ -25,6 +27,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: barman-cloud-ca-issuer
+  namespace: cnpg-system
 spec:
   ca:
     secretName: barman-cloud-ca-tls
@@ -33,6 +36,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: barman-cloud-server-tls
+  namespace: cnpg-system
 spec:
   secretName: barman-cloud-server-tls
   duration: 8760h
@@ -54,6 +58,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: barman-cloud-client-tls
+  namespace: cnpg-system
 spec:
   secretName: barman-cloud-client-tls
   duration: 8760h

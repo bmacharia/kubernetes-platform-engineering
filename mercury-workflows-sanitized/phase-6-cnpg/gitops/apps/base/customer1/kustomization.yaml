@@ -4,7 +4,6 @@ namespace: customer1
 resources:
   - namespace.yaml
   - secrets.yaml
-  - barman-tls-certificates.yaml
   - database.yaml
   - objectstore.yaml
   - scheduled-backup.yaml
