@@ -27,11 +27,11 @@ resource "azurerm_kubernetes_cluster" "main" {
   location            = azurerm_resource_group.aks.location
   resource_group_name = azurerm_resource_group.aks.name
   dns_prefix          = "staging"
-  kubernetes_version  = "1.32.1"
+  kubernetes_version  = "1.32.10"
 
   default_node_pool {
     name                 = "default"
-    orchestrator_version = "1.32.1"
+    orchestrator_version = "1.32.10"
     node_count           = 2
     vm_size              = "Standard_D2s_v3"
   }
