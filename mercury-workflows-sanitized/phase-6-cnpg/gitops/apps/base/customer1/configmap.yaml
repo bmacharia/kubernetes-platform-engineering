@@ -2,7 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: customer1-n8n-config
-  
+  labels:
+    managed-by: flux
+
 data:
   N8N_PORT: "3008"
   N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
