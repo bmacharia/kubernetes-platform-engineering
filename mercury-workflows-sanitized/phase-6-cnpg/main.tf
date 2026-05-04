@@ -27,11 +27,11 @@ resource "azurerm_kubernetes_cluster" "main" {
   location            = azurerm_resource_group.aks.location
   resource_group_name = azurerm_resource_group.aks.name
   dns_prefix          = "staging"
-  kubernetes_version  = "1.32.10"
+  kubernetes_version  = "1.35.1"
 
   default_node_pool {
     name                 = "default"
-    orchestrator_version = "1.32.10"
+    orchestrator_version = "1.35.1"
     node_count           = 2
     vm_size              = "Standard_D2s_v3"
   }
@@ -45,6 +45,8 @@ resource "azurerm_kubernetes_cluster" "main" {
     network_policy     = "cilium"
     network_data_plane = "cilium"
   }
+
+  oidc_issuer_enabled = true
 
   key_vault_secrets_provider {
     secret_rotation_enabled = false
@@ -105,8 +107,14 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
 
 data "azurerm_client_config" "current" {}
 
+resource "random_string" "kv_suffix" {
+  length  = 4
+  upper   = false
+  special = false
+}
+
 resource "azurerm_key_vault" "mercury_vault" {
-  name                = "kv-mercury-staging"
+  name                = "kv-mercury-stg-${random_string.kv_suffix.result}"
   location            = azurerm_resource_group.aks.location
   resource_group_name = azurerm_resource_group.aks.name
   tenant_id           = data.azurerm_client_config.current.tenant_id
