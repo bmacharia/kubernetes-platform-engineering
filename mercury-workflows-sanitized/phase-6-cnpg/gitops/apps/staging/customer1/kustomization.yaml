@@ -9,14 +9,17 @@ patches:
     patch: |-
       - op: replace
         path: /spec/parameters/userAssignedIdentityID
-        value: "946dcf18-d235-4001-a53c-501883f7c801"
+        value: "eaaaa64d-a4d0-4c5a-be68-46de7c89d550"
       - op: replace
         path: /spec/parameters/tenantId
         value: "2f695754-b89d-4b9b-b341-984f80794ebc"
+      - op: replace
+        path: /spec/parameters/keyvaultName
+        value: "kv-venus-staging"
   - target:
       kind: ObjectStore
       name: customer1-objectstore
     patch: |-
       - op: replace
         path: /spec/configuration/destinationPath
-        value: "https://jupiterbackupsstaging.blob.core.windows.net/customer1"
+        value: "https://venusbackupsstaging.blob.core.windows.net/customer1"
