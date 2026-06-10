@@ -35,6 +35,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   azure_active_directory_role_based_access_control {
     admin_group_object_ids = ["76a7e23d-2d0e-44cb-b117-708c3b49368e"]
+        modified:   ../phase-10-onboarding/README.md
   }
 
   # Automatic upgrades,  patch level only for stability
@@ -125,7 +126,7 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
   namespace  = "flux-system"
 
   git_repository {
-    url             = "ssh://git@github.com/mischavandenburg/mercury-gitops"
+    url             = "ssh://git@github.com/bmacharia/mercury-gitops"
     reference_type  = "branch"
     reference_value = "main"
 
