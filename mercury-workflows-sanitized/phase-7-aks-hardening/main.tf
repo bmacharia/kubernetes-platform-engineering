@@ -35,7 +35,6 @@ resource "azurerm_kubernetes_cluster" "main" {
 
   azure_active_directory_role_based_access_control {
     admin_group_object_ids = ["76a7e23d-2d0e-44cb-b117-708c3b49368e"]
-        modified:   ../phase-10-onboarding/README.md
   }
 
   # Automatic upgrades,  patch level only for stability
@@ -47,7 +46,8 @@ resource "azurerm_kubernetes_cluster" "main" {
   # System node pool for critical Kubernetes components
   # Tainted with CriticalAddonsOnly so user workloads don't schedule here
   default_node_pool {
-    name                         = "agentpool"
+    name = "agentpool"
+    ## Key Vault
     node_count                   = 2
     vm_size                      = "Standard_D2s_v3"
     only_critical_addons_enabled = true # Adds CriticalAddonsOnly taint
@@ -110,6 +110,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
 ## GitOps with Flux
 # IMPORTANT: Register provider first: az provider register --namespace Microsoft.KubernetesConfiguration
 
+## Key Vault
 resource "azurerm_kubernetes_cluster_extension" "flux" {
   name           = "mercury-flux"
   cluster_id     = azurerm_kubernetes_cluster.main.id
@@ -119,7 +120,6 @@ resource "azurerm_kubernetes_cluster_extension" "flux" {
   # The system pool has CriticalAddonsOnly taint, so Flux needs user nodes
   depends_on = [azurerm_kubernetes_cluster_node_pool.user]
 }
-
 
 resource "azurerm_kubernetes_flux_configuration" "main" {
   name       = "mercury-staging"
@@ -201,32 +201,7 @@ resource "random_password" "customer1_db_password" {
   lifecycle {
     ignore_changes = all
   }
-    max_surge = "33%"
-  }
 }
-
-    max_surge = "33%"
-  }
-}
-
-## GitOps with Flux
-# IMPORTANT: Register provider first: az provider register --namespace Microsoft.KubernetesConfiguration
-
-resource "azurerm_kubernetes_cluster_extension" "flux" {
-  name           = "mercury-flux"
-  cluster_id     = azurerm_kubernetes_cluster.main.id
-  extension_type = "microsoft.flux"
-
-## GitOps with Flux
-# IMPORTANT: Register provider first: az provider register --namespace Microsoft.KubernetesConfiguration
-
-resource "azurerm_kubernetes_cluster_extension" "flux" {
-  name           = "mercury-flux"
-  cluster_id     = azurerm_kubernetes_cluster.main.id
-  extension_type = "microsoft.flux"
-
-}
-
 
 resource "azurerm_key_vault_secret" "customer1_db_user" {
   name         = "customer1-db-user"
