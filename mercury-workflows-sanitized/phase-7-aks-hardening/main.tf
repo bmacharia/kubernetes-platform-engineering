@@ -120,6 +120,7 @@ resource "azurerm_kubernetes_cluster_extension" "flux" {
   depends_on = [azurerm_kubernetes_cluster_node_pool.user]
 }
 
+
 resource "azurerm_kubernetes_flux_configuration" "main" {
   name       = "mercury-staging"
   cluster_id = azurerm_kubernetes_cluster.main.id
@@ -200,7 +201,32 @@ resource "random_password" "customer1_db_password" {
   lifecycle {
     ignore_changes = all
   }
+    max_surge = "33%"
+  }
 }
+
+    max_surge = "33%"
+  }
+}
+
+## GitOps with Flux
+# IMPORTANT: Register provider first: az provider register --namespace Microsoft.KubernetesConfiguration
+
+resource "azurerm_kubernetes_cluster_extension" "flux" {
+  name           = "mercury-flux"
+  cluster_id     = azurerm_kubernetes_cluster.main.id
+  extension_type = "microsoft.flux"
+
+## GitOps with Flux
+# IMPORTANT: Register provider first: az provider register --namespace Microsoft.KubernetesConfiguration
+
+resource "azurerm_kubernetes_cluster_extension" "flux" {
+  name           = "mercury-flux"
+  cluster_id     = azurerm_kubernetes_cluster.main.id
+  extension_type = "microsoft.flux"
+
+}
+
 
 resource "azurerm_key_vault_secret" "customer1_db_user" {
   name         = "customer1-db-user"
