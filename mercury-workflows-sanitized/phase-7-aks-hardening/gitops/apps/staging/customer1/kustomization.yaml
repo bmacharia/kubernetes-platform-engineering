@@ -9,7 +9,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/parameters/userAssignedIdentityID
-        value: "10ebab78-f6c8-4d5e-ac64-c0d85fb031d0"
+        value: "eaaaa64d-a4d0-4c5a-be68-46de7c89d550"
       - op: replace
         path: /spec/parameters/tenantId
         value: "6c0d1498-a808-4d41-a865-fdebeb412738"
@@ -19,14 +19,14 @@ patches:
     patch: |-
       - op: replace
         path: /spec/configuration/destinationPath
-        value: "https://mercurybackupsstaging.blob.core.windows.net/customer1"
+        value: "https://venusbackupsstaging.blob.core.windows.net/customer1"
   - target:
       kind: Ingress
       name: customer1-ingress
     patch: |-
       - op: replace
         path: /spec/tls/0/hosts/0
-        value: "customer1.mercury-staging.kubecraftlabs.com"
+        value: "customer1.mercury-staging.airmanbabu.net"
       - op: replace
         path: /spec/rules/0/host
-        value: "customer1.mercury-staging.kubecraftlabs.com"
+        value: "customer1.mercury-staging.airmanbabu.net"
