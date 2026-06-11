@@ -7,19 +7,12 @@ metadata:
 spec:
   instances: 3
 
-  # Recovery bootstrap: replays WAL from the objectstore back to the latest
-  # consistent point. Switch back to initdb once the cluster is healthy.
-  # For PITR, add recoveryTarget.targetTime under the recovery block.
   bootstrap:
-    recovery:
-      source: customer1-source
-
-  externalClusters:
-    - name: customer1-source
-      plugin:
-        name: barman-cloud.cloudnative-pg.io
-        parameters:
-          barmanObjectName: customer1-objectstore
+    initdb:
+      database: app
+      owner: app
+      secret:
+        name: customer1-db-credentials
 
   storage:
     size: 1Gi
