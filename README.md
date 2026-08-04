@@ -9,6 +9,22 @@ A production-grade, multi-tenant Kubernetes platform built from the ground up on
 
 ---
 
+## For Hiring Managers
+
+ Real Kubernetes operations — not just deployment, but day-2 operations, incident response, and root cause analysis. The postmortems are the most valuable artifacts in this repo.
+
+**What to evaluate:**
+- `postmortem-metallb-vip-wifi-promisc-2026-05-13.md` — Network debugging at the ARP/Wi-Fi layer
+- `postmortem-flux-sops-stuck-namespaces-2026-05-12.md` — GitOps failure mode and namespace cleanup
+- `postmortem-uptime-kuma-vip-2026-04-30.md` — Multi-cause debugging (overlapping MetalLB, iptables, CR stuck loop)
+- `monitoring/` — Prometheus/Grafana/Alertmanager stack
+- `journal/` — Operational runbooks and notes
+
+**Skills demonstrated:** K3s, FluxCD, SOPS+Age, MetalLB, Traefik, Longhorn, Prometheus/Grafana, Cloudflare Tunnel, Renovate, incident response, root cause analysis, operational documentation
+
+**Time invested:** 145+ commits, 4 incident postmortems
+
+
 ## What This Project Demonstrates
 
 | Capability | Technologies |
@@ -25,6 +41,8 @@ A production-grade, multi-tenant Kubernetes platform built from the ground up on
 | Workload Security | Pod Security Standards, CiliumNetworkPolicy |
 
 ---
+
+
 
 ## The Platform in One Sentence
 
