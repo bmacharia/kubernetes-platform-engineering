@@ -8,21 +8,21 @@ A production-grade, multi-tenant Kubernetes platform built from the ground up on
 > No toy examples — every phase deploys and runs [n8n](https://n8n.io), a production workflow automation platform, on actual Azure resources.
 
 ---
-
 ## For Hiring Managers
 
- Real Kubernetes operations — not just deployment, but day-2 operations, incident response, and root cause analysis. The postmortems are the most valuable artifacts in this repo.
+**What this demonstrates:** End-to-end platform engineering — from infrastructure provisioning to automated customer onboarding. This is not a tutorial follow-along; every phase deploys real infrastructure on Azure and runs real workloads (n8n).
 
 **What to evaluate:**
-- `postmortem-metallb-vip-wifi-promisc-2026-05-13.md` — Network debugging at the ARP/Wi-Fi layer
-- `postmortem-flux-sops-stuck-namespaces-2026-05-12.md` — GitOps failure mode and namespace cleanup
-- `postmortem-uptime-kuma-vip-2026-04-30.md` — Multi-cause debugging (overlapping MetalLB, iptables, CR stuck loop)
-- `monitoring/` — Prometheus/Grafana/Alertmanager stack
-- `journal/` — Operational runbooks and notes
+- `LEARNING_PROGRESSION.md` — Phase-by-phase technical summary (start here)
+- `phase-5-gitops/` — GitOps implementation with FluxCD dependency chains
+- `phase-6-cnpg/` — In-cluster database with backup/restore architecture
+- `phase-8-production-n8n/` — Pod Security Standards and network policies
+- `phase-10-onboarding/` — Automated multi-tenant onboarding with Terraform
 
-**Skills demonstrated:** K3s, FluxCD, SOPS+Age, MetalLB, Traefik, Longhorn, Prometheus/Grafana, Cloudflare Tunnel, Renovate, incident response, root cause analysis, operational documentation
+**Skills demonstrated:** Terraform, AKS, FluxCD, CloudNativePG, Cilium, Entra ID, Pod Security Standards, Prometheus/Grafana, Helm, Kustomize, multi-tenant architecture, backup/restore design
 
-**Time invested:** 145+ commits, 4 incident postmortems
+**Time invested:** 10 progressive phases, 34+ commits
+
 
 
 ## What This Project Demonstrates
