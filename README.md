@@ -1,4 +1,3 @@
-```markdown
 # Kubernetes Platform Engineering on Azure AKS
 
 A production-grade, multi-tenant Kubernetes platform built from the ground up on Microsoft Azure — from a single VM to a fully automated customer onboarding system, documented across 10 progressive phases.
